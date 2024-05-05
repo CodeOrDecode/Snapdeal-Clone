@@ -7,18 +7,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Afterloginnavbar from "../Allsimilar/Afterloginnavbar"
 import { Authcontext } from "../Context/Authcontextprovider";
-
+import Loader from "./Loader"
 
 const Women = () => {
   const navigate = useNavigate();
   const [womendata, setWomendata] = useState(null);
   const [show, setShow] = useState(false);
   const [wantto, setWantto] = useState("All Products");
+  const [loadit, setLoadit] = useState(false);
 
   const { handlecartno } = React.useContext(Authcontext)
 
 
   async function womenProductData() {
+    setLoadit(true)
     try {
       let res = await fetch(
         "https://snapdeal-backend-4.onrender.com/women/getwomen"
@@ -26,19 +28,23 @@ const Women = () => {
       let res2 = await res.json();
       if (wantto == "All Products") {
         setWomendata(res2.products);
+        setLoadit(false)
       } else if (wantto == "Price High To Low") {
         let hightolow = res2.products.sort((a, b) => {
           return b.price - a.price;
         });
         setWomendata(hightolow);
+        setLoadit(false)
       } else {
         let lowToHigh = res2.products.sort((a, b) => {
           return a.price - b.price;
         });
         setWomendata(lowToHigh);
+        setLoadit(false)
       }
     } catch (error) {
       console.log(error);
+      setLoadit(false)
     }
   }
 
@@ -62,6 +68,11 @@ const Women = () => {
     handlecartno();
     document.title = "Buy Dress For Women Online at Best Price - Snapdeal";
   }, [wantto]);
+
+  if(loadit){
+    return <Loader/>
+  }
+
 
   return (
     <>

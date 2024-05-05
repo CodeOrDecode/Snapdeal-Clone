@@ -7,36 +7,43 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Afterloginnavbar from "../Allsimilar/Afterloginnavbar"
 import { Authcontext } from "../Context/Authcontextprovider";
+import Loader from "./Loader"
 
 const Men = () => {
   const navigate = useNavigate();
   const [mendata, setmendata] = useState(null);
   const [show, setShow] = useState(false);
   const [wantto, setWantto] = useState("All Products");
+  const [loadit, setLoadit] = useState(false);
 
   const { handlecartno } = React.useContext(Authcontext)
 
   async function menProductData() {
+    setLoadit(true)
     try {
       let res = await fetch("https://snapdeal-backend-4.onrender.com/men/getmen");
       let res2 = await res.json();
       if (wantto == "All Products") {
         setmendata(res2.products);
+        setLoadit(false)
       } else if (wantto == "Price High To Low") {
         let hightolow = res2.products.sort((a, b) => {
           return b.price - a.price;
         });
         setmendata(hightolow);
+        setLoadit(false)
       } else {
         let lowToHigh = res2.products.sort((a, b) => {
           return a.price - b.price;
         });
         setmendata(lowToHigh);
+        setLoadit(false)
       }
 
       
     } catch (error) {
       console.log(error);
+      setLoadit(false)
     }
   }
 
@@ -55,11 +62,18 @@ const Men = () => {
     }
   }
 
+
+
   useEffect(() => {
     menProductData();
     handlecartno();
     document.title = "Buy Branded Men's T-Shirts &amp; Polos Online at Snapdeal";
   }, [wantto]);
+  
+  if(loadit){
+    return <Loader/>
+  }
+
 
   return (
     <>
