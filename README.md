@@ -43,11 +43,11 @@ Snapdeal is an Indian e-commerce company, based in New Delhi, India. It was foun
 
 ## 🔗 Links
 
-[Deploy Link](https://snapdeal-clone-bice.vercel.app/)
+[Deploy link](https://snapdeal-clone-bice.vercel.app/)
 <br>
-[Presentation Link](https://drive.google.com/file/d/1RUY9DLapgMu1VgpiPoYcPal3Q-gb94QT/view?usp=sharing)
+[Presentation link](https://drive.google.com/file/d/1RUY9DLapgMu1VgpiPoYcPal3Q-gb94QT/view?usp=sharing)
 <br>
-[Backend deploy Link](https://snapdeal-backend-4.onrender.com/)
+[Backend deploy link](https://snapdeal-backend-4.onrender.com/)
 
 
 
