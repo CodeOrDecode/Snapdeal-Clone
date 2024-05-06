@@ -24,10 +24,6 @@ Snapdeal is an Indian e-commerce company, based in New Delhi, India. It was foun
 <img src="https://github.com/CodeOrDecode/Snapdeal-Clone/assets/110326357/b5beca5a-7e17-4010-a215-b95f9c641d84" width="650" >
 
 
-# Product Page
-<img src="https://github.com/CodeOrDecode/Snapdeal-Clone/assets/110326357/b5beca5a-7e17-4010-a215-b95f9c641d84" width="650" >
-
-
 # Cart Page
 <img src="https://github.com/CodeOrDecode/Snapdeal-Clone/assets/110326357/ed263d33-e04c-4c56-b031-414a1a2a6127" width="650" >
 
